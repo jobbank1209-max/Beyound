@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" style="color-scheme: dark;">
+
+
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beyond Logistics – Premium Global Logistics</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="description"
+    content="Beyond – premium international and local logistics, cargo clearance, warehousing and documentation services." />
+
+  <!-- Ensure dark mode is always enabled -->
+  <style type="text/tailwindcss">
+    @theme {
+      --dark-mode: selector(.dark);
+      --color-brand-50: #eff6ff;
+      --color-brand-100: #dbeafe;
+      --color-brand-200: #bfdbfe;
+      --color-brand-400: #60a5fa;
+      --color-brand-500: #3b82f6;
+      --color-brand-600: #2563eb;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .dark .glass-panel {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .parallax-layer {
+      transition: transform 280ms ease-out;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .parallax-layer {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+
+
+
+<body class="min-h-screen bg-[#020617] text-slate-50 antialiased selection:bg-brand-500/20 selection:text-brand-900">
+  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_50%)]"></div>
+  <div class="relative flex min-h-screen flex-col">
+    <!-- Header -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 border-b border-slate-700/60 bg-slate-900/70 shadow-soft backdrop-blur-2xl transition-all duration-300">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="logo.png" style="width: 100px;">
+        </a>
+
+        <div class="hidden items-center gap-8 text-sm font-medium text-slate-200 md:flex">
+          <a href="index.html" data-nav="home" data-i18n-key="nav.home"
+            class="transition hover:text-brand-600 dark:hover:text-white">Home</a>
+          <a href="services.html" data-nav="services" data-i18n-key="nav.services"
+            class="transition hover:text-brand-600 dark:hover:text-white">Services</a>
+          <a href="contact.html" data-nav="contact" data-i18n-key="nav.contact"
+            class="transition hover:text-brand-600 dark:hover:text-white">Contact</a>
+          <a href="about.html" data-nav="about" data-i18n-key="nav.about"
+            class="text-brand-600 dark:text-white transition hover:text-brand-600 dark:hover:text-white">About us</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div id="language-switcher"
+            class="relative inline-flex items-center rounded-lg border border-slate-700 bg-slate-800/50 px-2 py-1 text-[10px] font-semibold text-slate-200 shadow-sm hover:border-brand-400/50">
+            <button type="button" id="language-toggle" class="flex items-center gap-1">
+              <span id="language-toggle-label">EN</span>
+              <svg class="h-2.5 w-2.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="language-menu"
+              class="absolute right-0 top-full mt-2 hidden w-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-800 p-1 shadow-xl ring-1 ring-black/5">
+              <button type="button" class="block w-full rounded-lg px-2 py-1.5 text-left hover:bg-slate-800"
+                data-lang-option="en">EN</button>
+              <button type="button" class="block w-full rounded-lg px-2 py-1.5 text-left hover:bg-slate-800"
+                data-lang-option="nl">NL</button>
+              <button type="button" class="block w-full rounded-lg px-2 py-1.5 text-left hover:bg-slate-800"
+                data-lang-option="fr">FR</button>
+              <button type="button" class="block w-full rounded-lg px-2 py-1.5 text-left hover:bg-slate-800"
+                data-lang-option="de">DE</button>
+            </div>
+          </div>
+
+          <button type="button" data-open-booking
+            class="hidden md:inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-500 to-sky-500 px-4 py-1.5 text-[11px] font-semibold text-white shadow-soft transition hover:brightness-110 active:scale-[0.97]">
+            <span data-i18n-key="header.cta">Book now</span>
+          </button>
+
+          <button id="mobile-menu-toggle" type="button"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-700 bg-slate-800/60 text-slate-100 md:hidden">
+            <span class="sr-only">Toggle navigation</span>
+            <svg id="mobile-menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+            <svg id="mobile-menu-icon-close" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu"
+        class="hidden border-t border-slate-700/60 bg-slate-900/70 px-4 pb-6 pt-2 shadow-soft backdrop-blur-lg md:hidden">
+        <div class="space-y-1">
+          <a href="index.html" data-nav="home" data-i18n-key="nav.home"
+            class="block px-3 py-2.5 text-sm font-medium text-slate-200 hover:text-white transition">Home</a>
+          <a href="services.html" data-nav="services" data-i18n-key="nav.services"
+            class="block px-3 py-2.5 text-sm font-medium text-slate-200 hover:text-white transition">Services</a>
+          <a href="contact.html" data-nav="contact" data-i18n-key="nav.contact"
+            class="block px-3 py-2.5 text-sm font-medium text-slate-200 hover:text-white transition">Contact</a>
+          <a href="about.html" data-nav="about" data-i18n-key="nav.about"
+            class="block px-3 py-2.5 text-sm font-medium text-brand-600 dark:text-white hover:text-white transition">About
+            us</a>
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 pt-10">
+      <section id="about" class="border-t border-slate-800 bg-[#020617] py-16">
+        <div class="mx-auto max-w-5xl px-4 lg:px-6 parallax-layer" data-parallax data-parallax-speed="0.26">
+          <div class="max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400"
+              data-i18n-key="about.kicker">About</p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-100" data-i18n-key="about.title">About
+              Beyond
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-200" data-i18n-key="about.p1">
+              Beyond was created with a simple idea: logistics should feel invisible. For more than one years, we have
+              been designing and operating international and local transport networks that allow our customers to focus
+              on
+              growth – not on chasing containers and trucks.
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-100" data-i18n-key="about.p2">
+              From our base in Rotterdam, we coordinate sea, air and road freight across key trade lanes connecting
+              Europe, Asia, the Middle East and the Americas. Our specialists combine deep regulatory knowledge with
+              real‑time technology, ensuring that every shipment is compliant, traceable and optimised for cost and
+              transit time.
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-100" data-i18n-key="about.p3">
+              Whether you are moving your very first pallet or managing thousands of containers a year, Beyond provides
+              the same level of precision, transparency and care. That is why more than 10,000 customers trust us with
+              their cargo – and why we continue to push logistics beyond expectations.
+            </p>
+
+            <div class="mt-6 grid gap-4 text-xs text-slate-200 sm:grid-cols-3">
+              <div class="glass-panel rounded-2xl p-4 shadow-soft">
+                <div class="text-sm font-semibold text-slate-100" data-i18n-key="about.stats.years.title">
+                  1+ years</div>
+                <div class="mt-1 text-[11px] text-slate-400" data-i18n-key="about.stats.years.body">of
+                  hands‑on operational excellence across global trade lanes.</div>
+              </div>
+              <div class="glass-panel rounded-2xl p-4 shadow-soft">
+                <div class="text-sm font-semibold text-slate-100" data-i18n-key="about.stats.customers.title">10,000+
+                </div>
+                <div class="mt-1 text-[11px] text-slate-400" data-i18n-key="about.stats.customers.body">customers
+                  ranging
+                  from fast‑growing e‑commerce brands to
+                  multinationals.</div>
+              </div>
+              <div class="glass-panel rounded-2xl p-4 shadow-soft">
+                <div class="text-sm font-semibold text-slate-100" data-i18n-key="about.stats.single.title">Single point
+                </div>
+                <div class="mt-1 text-[11px] text-slate-400" data-i18n-key="about.stats.single.body">
+                  of contact for sea, air, road, warehousing and documentation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="border-t border-slate-800 bg-[#020617] py-4 text-xs text-slate-400">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:flex-row lg:px-6">
+        <p class="text-[11px]">
+          <span class="font-semibold text-slate-200" data-i18n-key="footer.brand">Beyond
+            Logistics</span>
+          <span> · </span>
+          <span data-i18n-key="footer.slogan">Delivering beyond expectations.</span>
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-[10px] uppercase tracking-[0.16em] text-slate-400"
+            data-i18n-key="footer.languages.label">Languages:</span>
+          <div class="flex gap-1 text-[10px] text-slate-400">
+            <span>NL</span>
+            <span>FR</span>
+            <span>DE</span>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Booking modal -->
+    <div id="booking-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/70 px-4 py-6 backdrop-blur">
+      <div class="glass-panel relative w-full max-w-lg rounded-3xl p-5 text-xs shadow-soft">
+        <button type="button" data-close-booking
+          class="absolute right-3 top-3 inline-flex h-7 w-7 items-center justify-center rounded-full border border-slate-700 bg-slate-800 text-slate-100 shadow-sm transition hover:border-slate-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/60">
+          ×
+          <span class="sr-only">Close booking form</span>
+        </button>
+
+        <div class="mb-4 flex items-start gap-3">
+          <div class="mt-1 h-7 w-7 rounded-2xl bg-gradient-to-tr from-brand-500 to-sky-400"></div>
+          <div>
+            <h2 class="text-sm font-semibold text-slate-100" data-i18n-key="booking.title">Book your
+              shipment</h2>
+            <p class="mt-1 text-[11px] text-slate-400" data-i18n-key="booking.subtitle">Share a few
+              details and our team will get back within one business hour.</p>
+          </div>
+        </div>
+
+        <form id="booking-form" class="grid gap-3" action="mailto:info@beyondfreightcustoms.com" method="POST"
+          enctype="text/plain">
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="booking-name" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="form.name.label">Full name</label>
+              <input id="booking-name" name="name" type="text" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="form.name.placeholder" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="booking-company" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="form.company.label">Company (optional)</label>
+              <input id="booking-company" name="company" type="text"
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="form.company.placeholder" placeholder="Your company" />
+            </div>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="booking-email" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="form.email.label">Email</label>
+              <input id="booking-email" name="email" type="email" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="form.email.placeholder" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="booking-phone" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="form.phone.label">Phone</label>
+              <input id="booking-phone" name="phone" type="tel" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="form.phone.placeholder" placeholder="+31 6 2820 8898" />
+            </div>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="booking-service" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="booking.form.service.label">Service</label>
+              <select id="booking-service" name="service" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 focus:border-brand-400 focus:ring-2">
+                <option value="" disabled selected data-i18n-key="booking.form.service.placeholder">Select a service
+                </option>
+                <option value="International transport" data-i18n-key="services.intl.title">International transport
+                </option>
+                <option value="Local transport" data-i18n-key="services.local.title">Local transport</option>
+                <option value="Export / Import document clearance" data-i18n-key="services.docs.title">Export / Import
+                  document clearance</option>
+                <option value="Cargo clearance" data-i18n-key="services.cargo.title">Cargo clearance</option>
+                <option value="Warehouse store facility" data-i18n-key="services.warehouse.title">Warehouse store
+                  facility</option>
+              </select>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div>
+                <label for="booking-date" class="text-[11px] font-medium text-slate-400"
+                  data-i18n-key="booking.form.date.label">Preferred date</label>
+                <input id="booking-date" name="date" type="date"
+                  class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 focus:border-brand-400 focus:ring-2" />
+              </div>
+              <div>
+                <label for="booking-time" class="text-[11px] font-medium text-slate-400"
+                  data-i18n-key="booking.form.time.label">Preferred time</label>
+                <input id="booking-time" name="time" type="time"
+                  class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 focus:border-brand-400 focus:ring-2" />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div>
+              <label for="booking-origin" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="booking.form.origin.label">Origin</label>
+              <input id="booking-origin" name="origin" type="text" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="booking.form.origin.placeholder" placeholder="City, country" />
+            </div>
+            <div>
+              <label for="booking-destination" class="text-[11px] font-medium text-slate-400"
+                data-i18n-key="booking.form.destination.label">Destination</label>
+              <input id="booking-destination" name="destination" type="text" required
+                class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                data-i18n-placeholder="booking.form.destination.placeholder" placeholder="City, country" />
+            </div>
+          </div>
+
+          <div>
+            <label for="booking-notes" class="text-[11px] font-medium text-slate-400"
+              data-i18n-key="booking.form.notes.label">Cargo details &amp; notes</label>
+            <textarea id="booking-notes" name="notes" rows="3"
+              class="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-xs text-slate-100 shadow-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+              data-i18n-placeholder="booking.form.notes.placeholder"
+              placeholder="Incoterms, weight / volume, special handling, deadlines..."></textarea>
+          </div>
+
+          <div class="mt-1 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p id="booking-status"
+              class="text-[11px] text-emerald-600 opacity-0 transition-opacity dark:text-emerald-400"
+              data-i18n-key="booking.success"></p>
+            <button type="submit"
+              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-500 to-sky-500 px-5 py-1.75 text-[11px] font-semibold text-white shadow-soft transition hover:brightness-110 active:scale-[0.97]">
+              <span data-i18n-key="booking.submit">Submit request</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    (function () {
+      const html = document.documentElement;
+      const languageSwitcher = document.getElementById('language-switcher');
+      const languageToggle = document.getElementById('language-toggle');
+      const languageToggleLabel = document.getElementById('language-toggle-label');
+      const languageMenu = document.getElementById('language-menu');
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileIconOpen = document.getElementById('mobile-menu-icon-open');
+      const mobileIconClose = document.getElementById('mobile-menu-icon-close');
+      const bookingModal = document.getElementById('booking-modal');
+      const bookingForm = document.getElementById('booking-form');
+      const bookingStatus = document.getElementById('booking-status');
+      const bookingServiceSelect = document.getElementById('booking-service');
+
+      const trackingInput = document.getElementById('tracking-input');
+      const trackingSearch = document.getElementById('tracking-search');
+      const trackingFeedback = document.getElementById('tracking-feedback');
+
+      const volForm = document.getElementById('volumetric-form');
+      const volLength = document.getElementById('vol-length');
+      const volWidth = document.getElementById('vol-width');
+      const volHeight = document.getElementById('vol-height');
+      const volMode = document.getElementById('vol-mode');
+      const volResult = document.getElementById('vol-result');
+      const volCalcButton = document.getElementById('vol-calc-button');
+
+      /* -------------------- Language handling -------------------- */
+      const translations = {
+        en: {
+          'brand.subtitle': 'Logistics',
+          'nav.home': 'Home',
+          'nav.services': 'Services',
+          'nav.contact': 'Contact',
+          'nav.about': 'About us',
+          'header.cta': 'Book now',
+          'hero.kicker': 'Premium global logistics',
+          'hero.title': 'Beyond – logistics without borders.',
+          'hero.heading': 'Global Reach, Precision Delivery',
+          'hero.subtitle': 'We move your cargo by sea, air and road with precision, visibility and care – so every shipment arrives exactly when and where you need it.',
+          'hero.cta.primary': 'Book a shipment',
+          'hero.cta.secondary': 'View services',
+          'hero.metrics.years': 'Years of Excellence',
+          'hero.metrics.customers': 'Happy Customers',
+          'hero.ship.label1': 'Ocean freight',
+          'hero.ship.label2': 'Real-time tracking',
+          'hero.flight.label1': 'Air cargo',
+          'hero.flight.label2': 'Express',
+          'hero.status.title': 'On time',
+          'hero.status.body': 'Average on-time delivery across all lanes.',
+
+          'home.logisticsFlow.title': 'Logistics flow',
+          'home.logisticsFlow.body': 'From port to plane to truck to warehouse – all coordinated by one team.',
+          'tools.kicker': 'Logistics tools',
+          'tools.volumetric.title': 'Volumetric weight calculator',
+          'tools.volumetric.cardTitle': 'Volumetric weight',
+          'tools.volumetric.intro': 'Estimate chargeable weight for air and sea freight in seconds – no spreadsheet required.',
+          'tools.volumetric.point1': 'Supports air (divisor 6000) and sea (divisor 1000).',
+          'tools.volumetric.point2': 'Works in centimetres – ideal for cartons and pallets.',
+          'tools.volumetric.point3': 'Helps compare actual vs volumetric weight for better decisions.',
+          'tools.volumetric.instructions': 'Enter shipment dimensions in centimetres.',
+
+          'home.overview.title': 'Beyond at a glance',
+          'home.overview.services.title': 'Services',
+          'home.overview.services.body': 'International and local transport, documentation, clearance and warehousing tailored to your business.',
+          'home.overview.services.link': 'View services',
+          'home.overview.contact.title': 'Contact us',
+          'home.overview.contact.body': 'Call, email or book an appointment with our logistics specialists.',
+          'home.overview.contact.link': 'Contact details',
+          'home.overview.about.title': 'About Beyond',
+          'home.overview.about.body': 'Learn how Beyond delivers invisible, reliable logistics for more than 1,000 customers.',
+          'home.overview.about.link': 'Learn more',
+
+          'services.kicker': 'Services',
+          'services.title': 'Our services',
+          'services.intro': 'End-to-end logistics tailored to your routes, volumes and timelines – from first document to final delivery.',
+          'services.quickBooking': 'Quick booking',
+          'services.book': 'Book',
+          'services.intl.title': 'International transport',
+          'services.intl.pill': 'Sea · Air · Road',
+          'services.intl.body': 'Door-to-door international freight with optimised routes, customs-ready documentation and live milestone updates for every shipment.',
+          'services.intl.meta': 'Global lanes across 80+ countries.',
+          'services.local.title': 'Local transport',
+          'services.local.pill': 'Same-city',
+          'services.local.body': 'Reliable local trucking and last‑mile distribution with time‑window deliveries, live tracking and dedicated support.',
+          'services.local.meta': 'Flexible fleet for shipments of any size.',
+          'services.docs.title': 'Export / Import document clearance',
+          'services.docs.pill': 'Compliance',
+          'services.docs.body': 'Complete documentation support – invoices, packing lists, certificates and licences – prepared to match the latest customs requirements.',
+          'services.docs.meta': 'Reduce delays and avoid costly penalties.',
+          'services.cargo.title': 'Cargo clearance',
+          'services.cargo.pill': 'Customs',
+          'services.cargo.body': 'Fast, accurate customs brokerage with pre‑clearance checks, duty optimisation and proactive exception handling at every port.',
+          'services.cargo.meta': 'Licensed brokers across major global hubs.',
+          'services.warehouse.title': 'Warehouse store facility',
+          'services.warehouse.pill': 'Storage',
+          'services.warehouse.body': 'Secure, scalable warehousing with inventory visibility, value‑added services and flexible contracts to match your volume peaks.',
+          'services.warehouse.meta': 'Ambient, chilled and bonded options.',
+          'services.custom.title': 'Looking for something custom?',
+          'services.custom.body': 'Combine services into a single solution: origin pick‑up, consolidation, international line‑haul, clearance and last‑mile delivery.',
+          'services.custom.tag.project': 'Project cargo',
+          'services.custom.tag.ecom': 'E‑commerce',
+          'services.custom.tag.temp': 'Temperature‑controlled',
+
+          'contact.kicker': 'Contact',
+          'contact.title': 'Contact us',
+          'contact.intro': 'Talk with a logistics specialist about your lanes, volumes and timelines – or book an appointment directly.',
+          'contact.location.label': 'Our location',
+          'contact.location.line1': 'Vogelplein 48T',
+          'contact.location.line2': '3312 GS Dordrecht',
+          'contact.location.line3': 'The Netherlands',
+          'contact.phone.label': 'Phone number',
+          'contact.phone.value': '+31 6 2820 8898',
+          'contact.email.label': 'Mail address',
+          'contact.email.value': 'info@beyondfreightcustoms.com',
+          'contact.hours.label': 'Office hours',
+          'contact.hours.value': 'Mon–Fri · 08:00–19:00 CET',
+          'contact.appointment.title': 'Book an appointment',
+          'contact.appointment.subtitle': 'Choose a time to discuss your shipment or long‑term contract.',
+          'contact.appointment.button': 'Open booking',
+          'contact.appointment.note': 'Average response time: under 1 business hour.',
+          'contact.form.title': 'Send us a message',
+          'contact.form.message.label': 'How can we help?',
+          'contact.form.message.placeholder': 'Share your routes, timelines or any questions.',
+          'contact.form.submit': 'Send message',
+          'contact.map.title': 'Our location',
+          'contact.map.body': 'Located in the heart of the Port of Rotterdam with direct access to major sea and air hubs.',
+          'contact.map.badge': 'Map',
+          'contact.map.note': 'Interactive map integration available for production deployment.',
+
+          'form.name.label': 'Full name',
+          'form.company.label': 'Company (optional)',
+          'form.email.label': 'Email',
+          'form.phone.label': 'Phone',
+          'form.name.placeholder': 'Your name',
+          'form.company.placeholder': 'Your company',
+          'form.email.placeholder': 'you@example.com',
+          'form.phone.placeholder': '+31 6 2820 8898',
+
+          'about.kicker': 'About',
+          'about.title': 'About Beyond',
+          'about.p1': 'Beyond was created with a simple idea: logistics should feel invisible. For more than one years, we have been designing and operating international and local transport networks that allow our customers to focus on growth – not on chasing containers and trucks.',
+          'about.p2': 'From our base in Rotterdam, we coordinate sea, air and road freight across key trade lanes connecting Europe, Asia, the Middle East and the Americas. Our specialists combine deep regulatory knowledge with real‑time technology, ensuring that every shipment is compliant, traceable and optimised for cost and transit time.',
+          'about.p3': 'Whether you are moving your very first pallet or managing thousands of containers a year, Beyond provides the same level of precision, transparency and care. That is why more than 1,000 customers trust us with their cargo – and why we continue to push logistics beyond expectations.',
+          'about.stats.years.title': '1+ years',
+          'about.stats.years.body': 'of hands‑on operational excellence across global trade lanes.',
+          'about.stats.customers.title': '1,000+',
+          'about.stats.customers.body': 'customers ranging from fast‑growing e‑commerce brands to multinationals.',
+          'about.stats.single.title': 'Single point',
+          'about.stats.single.body': 'of contact for sea, air, road, warehousing and documentation.',
+
+          'footer.brand': 'Beyond Logistics',
+          'footer.slogan': 'Delivering beyond expectations.',
+          'footer.languages.label': 'Languages:',
+
+          'booking.title': 'Book your shipment',
+          'booking.subtitle': 'Share a few details and our team will get back within one business hour.',
+          'booking.submit': 'Submit request',
+          'booking.success': 'Thank you. Our team will contact you shortly.',
+          'booking.form.service.label': 'Service',
+          'booking.form.service.placeholder': 'Select a service',
+          'booking.form.date.label': 'Preferred date',
+          'booking.form.time.label': 'Preferred time',
+          'booking.form.origin.label': 'Origin',
+          'booking.form.destination.label': 'Destination',
+          'booking.form.origin.placeholder': 'City, country',
+          'booking.form.destination.placeholder': 'City, country',
+          'booking.form.notes.label': 'Cargo details & notes',
+          'booking.form.notes.placeholder': 'Incoterms, weight / volume, special handling, deadlines...'
+        },
+        nl: {
+          'brand.subtitle': 'Logistiek',
+          'nav.home': 'Home',
+          'nav.services': 'Diensten',
+          'nav.contact': 'Contact',
+          'nav.about': 'Over ons',
+          'header.cta': 'Nu boeken',
+          'hero.kicker': 'Premium wereldwijde logistiek',
+          'hero.title': 'Beyond – logistiek zonder grenzen.',
+          'hero.heading': 'Wereldwijd bereik, precieze levering',
+          'hero.subtitle': 'Wij vervoeren uw vracht over zee, door de lucht en over de weg met precisie, zichtbaarheid en zorg – zodat elke zending precies aankomt waar en wanneer u die nodig heeft.',
+          'hero.cta.primary': 'Boek een zending',
+          'hero.cta.secondary': 'Bekijk diensten',
+          'hero.metrics.years': 'Jaar ervaring',
+          'hero.metrics.customers': 'Tevreden klanten',
+          'hero.ship.label1': 'Zeevracht',
+          'hero.ship.label2': 'Realtime tracking',
+          'hero.flight.label1': 'Luchtvracht',
+          'hero.flight.label2': 'Express',
+          'hero.status.title': 'Op tijd',
+          'hero.status.body': 'Gemiddelde on-time levering over alle routes.',
+
+          'home.logisticsFlow.title': 'Logistieke flow',
+          'home.logisticsFlow.body': 'Van haven tot vliegtuig, truck en magazijn – alles gecoördineerd door één team.',
+          'tools.kicker': 'Logistieke tools',
+          'tools.volumetric.title': 'Volumegewicht-calculator',
+          'tools.volumetric.cardTitle': 'Volumegewicht',
+          'tools.volumetric.intro': 'Bereken in enkele seconden het factureerbare gewicht voor lucht- en zeevracht – zonder spreadsheet.',
+          'tools.volumetric.point1': 'Ondersteunt luchtvracht (divisor 6000) en zeevracht (divisor 1000).',
+          'tools.volumetric.point2': 'Werkt in centimeters – ideaal voor dozen en pallets.',
+          'tools.volumetric.point3': 'Helpt bij het vergelijken van werkelijk en volumegewicht voor betere keuzes.',
+          'tools.volumetric.instructions': 'Voer de afmetingen van de zending in centimeters in.',
+
+          'home.overview.title': 'Beyond in één oogopslag',
+          'home.overview.services.title': 'Diensten',
+          'home.overview.services.body': 'Internationaal en lokaal transport, documentatie, inklaring en warehousing op maat van uw bedrijf.',
+          'home.overview.services.link': 'Bekijk diensten',
+          'home.overview.contact.title': 'Contact',
+          'home.overview.contact.body': 'Bel, mail of boek een afspraak met onze logistieke specialisten.',
+          'home.overview.contact.link': 'Contactgegevens',
+          'home.overview.about.title': 'Over Beyond',
+          'home.overview.about.body': 'Lees hoe Beyond onzichtbare, betrouwbare logistiek levert voor meer dan 10.000 klanten.',
+          'home.overview.about.link': 'Lees meer',
+
+          'services.kicker': 'Diensten',
+          'services.title': 'Onze diensten',
+          'services.intro': 'Complete logistieke oplossingen op maat van uw routes, volumes en doorlooptijden – van eerste document tot laatste levering.',
+          'services.quickBooking': 'Snel boeken',
+          'services.book': 'Boeken',
+          'services.intl.title': 'Internationaal transport',
+          'services.intl.pill': 'Zee · Lucht · Weg',
+          'services.intl.body': 'Door-to-door internationaal vervoer met geoptimaliseerde routes, douaneklare documenten en live statusupdates voor elke zending.',
+          'services.intl.meta': 'Wereldwijde routes in meer dan 80 landen.',
+          'services.local.title': 'Lokaal transport',
+          'services.local.pill': 'Binnen dezelfde stad',
+          'services.local.body': 'Betrouwbare lokale trucking en last‑mile distributie met tijdvakken, live tracking en toegewijde support.',
+          'services.local.meta': 'Flexibel wagenpark voor zendingen van elke omvang.',
+          'services.docs.title': 'Export- / importdocumentafhandeling',
+          'services.docs.pill': 'Compliance',
+          'services.docs.body': 'Volledige ondersteuning bij documenten – facturen, paklijsten, certificaten en vergunningen – volgens de laatste douaneregels opgesteld.',
+          'services.docs.meta': 'Beperk vertragingen en vermijd kostbare boetes.',
+          'services.cargo.title': 'Goedereninklaring',
+          'services.cargo.pill': 'Douane',
+          'services.cargo.body': 'Snelle en nauwkeurige douaneafhandeling met pre‑checks, duty-optimalisatie en proactieve opvolging in elke haven.',
+          'services.cargo.meta': 'Gelicentieerde agenten op belangrijke wereldwijde hubs.',
+          'services.warehouse.title': 'Magazijn- en opslagfaciliteit',
+          'services.warehouse.pill': 'Opslag',
+          'services.warehouse.body': 'Veilige, schaalbare opslag met voorraadzicht, value‑added services en flexibele contracten voor uw piekvolumes.',
+          'services.warehouse.meta': 'Ambient, gekoelde en douane-entrepot opties.',
+          'services.custom.title': 'Zoekt u een oplossing op maat?',
+          'services.custom.body': 'Combineer diensten tot één oplossing: afhaling aan de bron, consolidatie, internationale lijnrit, inklaring en laatste kilometer.',
+          'services.custom.tag.project': 'Projectlading',
+          'services.custom.tag.ecom': 'E‑commerce',
+          'services.custom.tag.temp': 'Geconditioneerd vervoer',
+
+          'contact.kicker': 'Contact',
+          'contact.title': 'Neem contact op',
+          'contact.intro': 'Spreek met een logistiek specialist over uw routes, volumes en deadlines – of boek direct een afspraak.',
+          'contact.location.label': 'Onze locatie',
+          'contact.location.line1': 'Vogelplein 48T',
+          'contact.location.line2': '3312 GS Dordrecht',
+          'contact.location.line3': 'Nederland',
+          'contact.phone.label': 'Telefoonnummer',
+          'contact.phone.value': '+31 6 2820 8898',
+          'contact.email.label': 'E‑mailadres',
+          'contact.email.value': 'info@beyondfreightcustoms.com',
+          'contact.hours.label': 'Kantooruren',
+          'contact.hours.value': 'Ma–Vr · 08:00–19:00 CET',
+          'contact.appointment.title': 'Afspraak boeken',
+          'contact.appointment.subtitle': 'Kies een moment om uw zending of langetermijncontract te bespreken.',
+          'contact.appointment.button': 'Open boeking',
+          'contact.appointment.note': 'Gemiddelde reactietijd: binnen 1 werkuur.',
+          'contact.form.title': 'Stuur ons een bericht',
+          'contact.form.message.label': 'Hoe kunnen wij helpen?',
+          'contact.form.message.placeholder': 'Deel uw routes, doorlooptijden of vragen.',
+          'contact.form.submit': 'Verstuur bericht',
+          'contact.map.title': 'Onze locatie',
+          'contact.map.body': 'Gevestigd in het hart van de Rotterdamse haven met directe toegang tot zee- en luchthubs.',
+          'contact.map.badge': 'Kaart',
+          'contact.map.note': 'Interactieve kaartintegratie beschikbaar voor productie.',
+
+          'form.name.label': 'Volledige naam',
+          'form.company.label': 'Bedrijf (optioneel)',
+          'form.email.label': 'E‑mail',
+          'form.phone.label': 'Telefoon',
+          'form.name.placeholder': 'Uw naam',
+          'form.company.placeholder': 'Uw bedrijf',
+          'form.email.placeholder': 'u@voorbeeld.com',
+          'form.phone.placeholder': '+31 6 2820 8898',
+
+          'about.kicker': 'Over',
+          'about.title': 'Over Beyond',
+          'about.p1': 'Beyond is opgericht met een eenvoudig idee: logistiek moet onzichtbaar aanvoelen. Al meer dan one jaar ontwerpen en beheren wij internationale en lokale transportnetwerken zodat onze klanten zich kunnen richten op groei – niet op het najagen van containers en trucks.',
+          'about.p2': 'Vanuit onze basis in Rotterdam coördineren wij zee-, lucht- en wegtransport over belangrijke handelsroutes tussen Europa, Azië, het Midden-Oosten en de Amerika\'s. Onze specialisten combineren diepgaande regelgevingkennis met realtime technologie, zodat elke zending compliant, traceerbaar en geoptimaliseerd is voor kosten en looptijd.',
+          'about.p3': 'Of u nu uw allereerste pallet verplaatst of duizenden containers per jaar beheert, Beyond biedt hetzelfde niveau van precisie, transparantie en zorg. Daarom vertrouwen meer dan 10.000 klanten ons hun vracht toe – en blijven wij logistiek verder brengen dan verwacht.',
+          'about.stats.years.title': '1+ jaar',
+          'about.stats.years.body': 'praktische operationele ervaring op wereldwijde handelsroutes.',
+          'about.stats.customers.title': '1,000+',
+          'about.stats.customers.body': 'klanten, van snelgroeiende e‑commerce merken tot multinationals.',
+          'about.stats.single.title': 'Eén aanspreekpunt',
+          'about.stats.single.body': 'voor zee-, lucht-, wegtransport, warehousing en documentatie.',
+
+          'footer.brand': 'Beyond Logistics',
+          'footer.slogan': 'Altijd verder dan verwacht.',
+          'footer.languages.label': 'Talen:',
+
+          'booking.title': 'Boek uw zending',
+          'booking.subtitle': 'Deel enkele gegevens en ons team neemt binnen één werkdag contact met u op.',
+          'booking.submit': 'Aanvraag verzenden',
+          'booking.success': 'Bedankt. Ons team neemt binnenkort contact met u op.',
+          'booking.form.service.label': 'Dienst',
+          'booking.form.service.placeholder': 'Kies een dienst',
+          'booking.form.date.label': 'Gewenste datum',
+          'booking.form.time.label': 'Gewenste tijd',
+          'booking.form.origin.label': 'Herkomst',
+          'booking.form.destination.label': 'Bestemming',
+          'booking.form.origin.placeholder': 'Stad, land',
+          'booking.form.destination.placeholder': 'Stad, land',
+          'booking.form.notes.label': 'Vrachtdetails & opmerkingen',
+          'booking.form.notes.placeholder': 'Incoterms, gewicht/volume, speciale behandeling, deadlines...'
+        },
+        fr: {
+          'brand.subtitle': 'Logistique',
+          'nav.home': 'Accueil',
+          'nav.services': 'Services',
+          'nav.contact': 'Contact',
+          'nav.about': 'À propos',
+          'header.cta': 'Réserver',
+          'hero.kicker': 'Logistique mondiale premium',
+          'hero.title': 'Beyond – une logistique sans frontières.',
+          'hero.heading': 'Portée mondiale, livraison précise',
+          'hero.subtitle': 'Nous transportons vos marchandises par mer, air et route avec précision, visibilité et soin – pour que chaque envoi arrive exactement où et quand vous en avez besoin.',
+          'hero.cta.primary': 'Réserver un envoi',
+          'hero.cta.secondary': 'Voir les services',
+          'hero.metrics.years': "Années d'excellence",
+          'hero.metrics.customers': 'Clients satisfaits',
+          'hero.ship.label1': 'Fret maritime',
+          'hero.ship.label2': 'Suivi en temps réel',
+          'hero.flight.label1': 'Fret aérien',
+          'hero.flight.label2': 'Express',
+          'hero.status.title': 'À l\'heure',
+          'hero.status.body': 'Taux moyen de ponctualité sur toutes les liaisons.',
+
+          'home.logisticsFlow.title': 'Flux logistique',
+          'home.logisticsFlow.body': 'Du port à l’avion, au camion puis à l’entrepôt – tout est coordonné par une seule équipe.',
+          'tools.kicker': 'Outils logistiques',
+          'tools.volumetric.title': 'Calculateur de poids volumétrique',
+          'tools.volumetric.cardTitle': 'Poids volumétrique',
+          'tools.volumetric.intro': 'Estimez le poids facturable pour le fret aérien et maritime en quelques secondes – sans tableur.',
+          'tools.volumetric.point1': 'Prend en charge le fret aérien (diviseur 6000) et maritime (diviseur 1000).',
+          'tools.volumetric.point2': 'Fonctionne en centimètres – idéal pour les cartons et les palettes.',
+          'tools.volumetric.point3': 'Aide à comparer poids réel et volumétrique pour de meilleures décisions.',
+          'tools.volumetric.instructions': 'Saisissez les dimensions de l’envoi en centimètres.',
+
+          'home.overview.title': 'Beyond en bref',
+          'home.overview.services.title': 'Services',
+          'home.overview.services.body': 'Transport international et local, documentation, dédouanement et entreposage adaptés à votre activité.',
+          'home.overview.services.link': 'Voir les services',
+          'home.overview.contact.title': 'Contactez-nous',
+          'home.overview.contact.body': 'Appelez-nous, écrivez-nous ou réservez un rendez-vous avec nos spécialistes logistiques.',
+          'home.overview.contact.link': 'Coordonnées',
+          'home.overview.about.title': 'À propos de Beyond',
+          'home.overview.about.body': 'Découvrez comment Beyond fournit une logistique fiable et discrète à plus de 10 000 clients.',
+          'home.overview.about.link': 'En savoir plus',
+
+          'services.kicker': 'Services',
+          'services.title': 'Nos services',
+          'services.intro': 'Une logistique de bout en bout adaptée à vos flux, volumes et délais – du premier document à la livraison finale.',
+          'services.quickBooking': 'Réservation rapide',
+          'services.book': 'Réserver',
+          'services.intl.title': 'Transport international',
+          'services.intl.pill': 'Mer · Air · Route',
+          'services.intl.body': 'Transport international porte-à-porte avec itinéraires optimisés, documents prêts pour la douane et suivi des étapes en direct.',
+          'services.intl.meta': 'Liaisons mondiales dans plus de 80 pays.',
+          'services.local.title': 'Transport local',
+          'services.local.pill': 'Intra‑ville',
+          'services.local.body': 'Transport routier local et distribution du dernier kilomètre avec créneaux horaires, suivi en direct et support dédié.',
+          'services.local.meta': 'Flotte flexible pour des envois de toute taille.',
+          'services.docs.title': 'Dédouanement des documents export / import',
+          'services.docs.pill': 'Conformité',
+          'services.docs.body': 'Prise en charge complète des documents – factures, listes de colisage, certificats et licences – préparés selon les dernières exigences douanières.',
+          'services.docs.meta': 'Réduisez les retards et évitez les pénalités coûteuses.',
+          'services.cargo.title': 'Dédouanement de cargaison',
+          'services.cargo.pill': 'Douanes',
+          'services.cargo.body': 'Courtier en douane rapide et précis avec pré‑contrôles, optimisation des droits et gestion proactive des exceptions dans chaque port.',
+          'services.cargo.meta': 'Courtiers agréés dans les principaux hubs mondiaux.',
+          'services.warehouse.title': 'Entrepôt et stockage',
+          'services.warehouse.pill': 'Stockage',
+          'services.warehouse.body': 'Entrepôts sécurisés et évolutifs avec visibilité des stocks, services à valeur ajoutée et contrats flexibles selon vos pics de volume.',
+          'services.warehouse.meta': 'Options ambiantes, réfrigérées et sous douane.',
+          'services.custom.title': 'Une demande spécifique ?',
+          'services.custom.body': 'Combinez plusieurs services en une seule solution : enlèvement à l\'origine, consolidation, ligne internationale, dédouanement et livraison du dernier kilomètre.',
+          'services.custom.tag.project': 'Cargaison de projet',
+          'services.custom.tag.ecom': 'E‑commerce',
+          'services.custom.tag.temp': 'Température contrôlée',
+
+          'contact.kicker': 'Contact',
+          'contact.title': 'Contactez‑nous',
+          'contact.intro': 'Discutez avec un spécialiste logistique de vos flux, volumes et délais – ou réservez directement un rendez‑vous.',
+          'contact.location.label': 'Notre adresse',
+          'contact.location.line1': 'Vogelplein 48T',
+          'contact.location.line2': '3312 GS Dordrecht',
+          'contact.location.line3': 'Pays‑Bas',
+          'contact.phone.label': 'Numéro de téléphone',
+          'contact.phone.value': '+31 6 2820 8898',
+          'contact.email.label': 'Adresse e‑mail',
+          'contact.email.value': 'info@beyondfreightcustoms.com',
+          'contact.hours.label': 'Heures de bureau',
+          'contact.hours.value': 'Lun–Ven · 08:00–19:00 CET',
+          'contact.appointment.title': 'Prendre un rendez‑vous',
+          'contact.appointment.subtitle': 'Choisissez un créneau pour parler de votre envoi ou d\'un contrat long terme.',
+          'contact.appointment.button': 'Ouvrir la réservation',
+          'contact.appointment.note': 'Délai de réponse moyen : moins d’une heure ouvrée.',
+          'contact.form.title': 'Envoyez‑nous un message',
+          'contact.form.message.label': 'Comment pouvons‑nous vous aider ?',
+          'contact.form.message.placeholder': 'Partagez vos routes, délais ou toute question.',
+          'contact.form.submit': 'Envoyer le message',
+          'contact.map.title': 'Notre localisation',
+          'contact.map.body': 'Situés au cœur du port de Rotterdam avec accès direct aux principaux hubs maritimes et aériens.',
+          'contact.map.badge': 'Carte',
+          'contact.map.note': 'Intégration de carte interactive disponible en production.',
+
+          'form.name.label': 'Nom complet',
+          'form.company.label': 'Société (optionnel)',
+          'form.email.label': 'E‑mail',
+          'form.phone.label': 'Téléphone',
+          'form.name.placeholder': 'Votre nom',
+          'form.company.placeholder': 'Votre société',
+          'form.email.placeholder': 'vous@exemple.com',
+          'form.phone.placeholder': '+31 6 2820 8898',
+
+          'about.kicker': 'À propos',
+          'about.title': 'À propos de Beyond',
+          'about.p1': 'Beyond est née d’une idée simple : la logistique doit être invisible. one plus de sept ans, nous concevons et exploitons des réseaux de transport internationaux et locaux qui permettent à nos clients de se concentrer sur leur croissance – pas sur la chasse aux conteneurs et aux camions.',
+          'about.p2': 'Depuis notre base de Rotterdam, nous coordonnons le fret maritime, aérien et routier sur les principales liaisons reliant l’Europe, l’Asie, le Moyen‑Orient et les Amériques. Nos spécialistes allient expertise réglementaire approfondie et technologie temps réel pour garantir des envois conformes, traçables et optimisés en coût et délai.',
+          'about.p3': 'Que vous expédiiez votre toute première palette ou que vous gériez des milliers de conteneurs par an, Beyond offre le même niveau de précision, de transparence et de soin. C’est pourquoi plus de 10 000 clients nous confient leur cargaison – et pourquoi nous continuons à repousser les limites de la logistique.',
+          'about.stats.years.title': '1+ ans',
+          'about.stats.years.body': 'd’excellence opérationnelle concrète sur les routes commerciales mondiales.',
+          'about.stats.customers.title': '10 000+',
+          'about.stats.customers.body': 'clients, des marques e‑commerce en forte croissance aux multinationales.',
+          'about.stats.single.title': 'Point de contact unique',
+          'about.stats.single.body': 'pour le fret maritime, aérien, routier, l’entreposage et la documentation.',
+
+          'footer.brand': 'Beyond Logistics',
+          'footer.slogan': 'Au‑delà de vos attentes.',
+          'footer.languages.label': 'Langues :',
+
+          'booking.title': 'Réservez votre envoi',
+          'booking.subtitle': 'Partagez quelques détails et notre équipe vous répondra sous un jour ouvré.',
+          'booking.submit': 'Envoyer la demande',
+          'booking.success': 'Merci. Notre équipe vous contactera rapidement.',
+          'booking.form.service.label': 'Service',
+          'booking.form.service.placeholder': 'Choisissez un service',
+          'booking.form.date.label': 'Date souhaitée',
+          'booking.form.time.label': 'Heure souhaitée',
+          'booking.form.origin.label': 'Origine',
+          'booking.form.destination.label': 'Destination',
+          'booking.form.origin.placeholder': 'Ville, pays',
+          'booking.form.destination.placeholder': 'Ville, pays',
+          'booking.form.notes.label': 'Détails & remarques sur la cargaison',
+          'booking.form.notes.placeholder': 'Incoterms, poids / volume, manutention spéciale, échéances...'
+        },
+        de: {
+          'brand.subtitle': 'Logistik',
+          'nav.home': 'Startseite',
+          'nav.services': 'Leistungen',
+          'nav.contact': 'Kontakt',
+          'nav.about': 'Über uns',
+          'header.cta': 'Jetzt buchen',
+          'hero.kicker': 'Premium Logistik weltweit',
+          'hero.title': 'Beyond – Logistik ohne Grenzen.',
+          'hero.heading': 'Weltweite Reichweite, präzise Lieferung',
+          'hero.subtitle': 'Wir bewegen Ihre Fracht auf See, in der Luft und auf der Straße mit Präzision, Transparenz und Sorgfalt – damit jede Sendung genau dort und dann ankommt, wo Sie sie brauchen.',
+          'hero.cta.primary': 'Sendung buchen',
+          'hero.cta.secondary': 'Leistungen ansehen',
+          'hero.metrics.years': 'Jahre Exzellenz',
+          'hero.metrics.customers': 'Zufriedene Kunden',
+          'hero.ship.label1': 'Seefracht',
+          'hero.ship.label2': 'Echtzeit-Tracking',
+          'hero.flight.label1': 'Luftfracht',
+          'hero.flight.label2': 'Express',
+          'hero.status.title': 'Pünktlich',
+          'hero.status.body': 'Durchschnittliche Pünktlichkeit über alle Relationen.',
+
+          'home.logisticsFlow.title': 'Logistikfluss',
+          'home.logisticsFlow.body': 'Vom Hafen über Flugzeug und Lkw bis ins Lager – alles wird von einem Team koordiniert.',
+          'tools.kicker': 'Logistik-Tools',
+          'tools.volumetric.title': 'Volumengewicht-Rechner',
+          'tools.volumetric.cardTitle': 'Volumengewicht',
+          'tools.volumetric.intro': 'Ermitteln Sie das verrechenbare Gewicht für Luft- und Seefracht in Sekunden – ganz ohne Excel.',
+          'tools.volumetric.point1': 'Unterstützt Luftfracht (Divisor 6000) und Seefracht (Divisor 1000).',
+          'tools.volumetric.point2': 'Arbeitet mit Zentimetern – ideal für Kartons und Paletten.',
+          'tools.volumetric.point3': 'Hilft, Ist- und Volumengewicht für bessere Entscheidungen zu vergleichen.',
+          'tools.volumetric.instructions': 'Geben Sie die Sendungsabmessungen in Zentimetern ein.',
+
+          'home.overview.title': 'Beyond auf einen Blick',
+          'home.overview.services.title': 'Leistungen',
+          'home.overview.services.body': 'Internationaler und lokaler Transport, Dokumentation, Zollabfertigung und Lagerung passend zu Ihrem Unternehmen.',
+          'home.overview.services.link': 'Leistungen ansehen',
+          'home.overview.contact.title': 'Kontakt',
+          'home.overview.contact.body': 'Rufen Sie uns an, schreiben Sie eine E-Mail oder vereinbaren Sie einen Termin mit unseren Logistikspezialisten.',
+          'home.overview.contact.link': 'Kontaktdaten',
+          'home.overview.about.title': 'Über Beyond',
+          'home.overview.about.body': 'Erfahren Sie, wie Beyond für mehr als 10.000 Kunden zuverlässige, nahezu unsichtbare Logistik liefert.',
+          'home.overview.about.link': 'Mehr erfahren',
+
+          'services.kicker': 'Leistungen',
+          'services.title': 'Unsere Leistungen',
+          'services.intro': 'End-to-End-Logistik, abgestimmt auf Ihre Relationen, Volumen und Laufzeiten – vom ersten Dokument bis zur finalen Zustellung.',
+          'services.quickBooking': 'Schnell buchen',
+          'services.book': 'Buchen',
+          'services.intl.title': 'Internationaler Transport',
+          'services.intl.pill': 'See · Luft · Straße',
+          'services.intl.body': 'Tür-zu-Tür-Transporte mit optimierten Routen, zollfertigen Dokumenten und Live-Statusmeldungen für jede Sendung.',
+          'services.intl.meta': 'Weltweite Verbindungen in über 80 Ländern.',
+          'services.local.title': 'Lokaler Transport',
+          'services.local.pill': 'Innerhalb der Stadt',
+          'services.local.body': 'Zuverlässige lokale Lkw-Transporte und Zustellung auf der letzten Meile mit Zeitfenstern, Live-Tracking und persönlichem Support.',
+          'services.local.meta': 'Flexible Flotte für Sendungen jeder Größe.',
+          'services.docs.title': 'Export-/Import-Dokumentenabwicklung',
+          'services.docs.pill': 'Compliance',
+          'services.docs.body': 'Umfassende Unterstützung bei Dokumenten – Rechnungen, Packlisten, Zertifikate und Lizenzen – gemäß den neuesten Zollanforderungen.',
+          'services.docs.meta': 'Reduziert Verzögerungen und vermeidet teure Strafen.',
+          'services.cargo.title': 'Zollabfertigung',
+          'services.cargo.pill': 'Zoll',
+          'services.cargo.body': 'Schnelle, präzise Zollabfertigung mit Vorabprüfungen, Duty-Optimierung und proaktiver Behandlung von Ausnahmen in jedem Hafen.',
+          'services.cargo.meta': 'Lizenzierte Broker an wichtigen globalen Drehkreuzen.',
+          'services.warehouse.title': 'Lager- und Logistikfläche',
+          'services.warehouse.pill': 'Lagerung',
+          'services.warehouse.body': 'Sichere, skalierbare Lagerflächen mit Bestandsübersicht, Value‑Added Services und flexiblen Verträgen für Ihre Volumenspitzen.',
+          'services.warehouse.meta': 'Ambient-, Kühl- und Zollageroptionen.',
+          'services.custom.title': 'Sie benötigen eine individuelle Lösung?',
+          'services.custom.body': 'Kombinieren Sie Leistungen zu einer Gesamtlösung: Abholung am Ursprung, Konsolidierung, internationale Linie, Zollabfertigung und letzte Meile.',
+          'services.custom.tag.project': 'Projektladung',
+          'services.custom.tag.ecom': 'E‑Commerce',
+          'services.custom.tag.temp': 'Temperaturgeführt',
+
+          'contact.kicker': 'Kontakt',
+          'contact.title': 'Kontakt aufnehmen',
+          'contact.intro': 'Sprechen Sie mit einem Logistikspezialisten über Ihre Relationen, Volumen und Laufzeiten – oder buchen Sie direkt einen Termin.',
+          'contact.location.label': 'Unser Standort',
+          'contact.location.line1': 'Vogelplein 48T',
+          'contact.location.line2': '3312 GS Dordrecht',
+          'contact.location.line3': 'Niederlande',
+          'contact.phone.label': 'Telefonnummer',
+          'contact.phone.value': '+31 6 2820 8898',
+          'contact.email.label': 'E‑Mail‑Adresse',
+          'contact.email.value': 'info@beyondfreightcustoms.com',
+          'contact.hours.label': 'Bürozeiten',
+          'contact.hours.value': 'Mo–Fr · 08:00–19:00 CET',
+          'contact.appointment.title': 'Termin vereinbaren',
+          'contact.appointment.subtitle': 'Wählen Sie einen Zeitpunkt, um über Ihre Sendung oder einen langfristigen Vertrag zu sprechen.',
+          'contact.appointment.button': 'Buchung öffnen',
+          'contact.appointment.note': 'Durchschnittliche Reaktionszeit: unter 1 Geschäftsstunde.',
+          'contact.form.title': 'Nachricht senden',
+          'contact.form.message.label': 'Wie können wir helfen?',
+          'contact.form.message.placeholder': 'Teilen Sie Ihre Relationen, Laufzeiten oder Fragen.',
+          'contact.form.submit': 'Nachricht senden',
+          'contact.map.title': 'Unser Standort',
+          'contact.map.body': 'Im Herzen des Rotterdamer Hafens mit direktem Zugang zu wichtigen See- und Flughubs.',
+          'contact.map.badge': 'Karte',
+          'contact.map.note': 'Interaktive Kartenintegration für den Produktivbetrieb verfügbar.',
+
+          'form.name.label': 'Vollständiger Name',
+          'form.company.label': 'Unternehmen (optional)',
+          'form.email.label': 'E‑Mail',
+          'form.phone.label': 'Telefon',
+          'form.name.placeholder': 'Ihr Name',
+          'form.company.placeholder': 'Ihr Unternehmen',
+          'form.email.placeholder': 'sie@beispiel.de',
+          'form.phone.placeholder': '+49 30 123456',
+
+          'about.kicker': 'Über',
+          'about.title': 'Über Beyond',
+          'about.p1': 'Beyond wurde mit einer einfachen Idee gegründet: Logistik soll unsichtbar sein. Seit mehr als one Jahren entwickeln und betreiben wir internationale und lokale Transportnetzwerke, damit sich unsere Kunden auf ihr Wachstum konzentrieren können – und nicht auf das Hinterherlaufen von Containern und Lkw.',
+          'about.p2': 'Von unserem Standort in Rotterdam steuern wir See‑, Luft‑ und Straßentransporte auf wichtigen Handelsrouten zwischen Europa, Asien, dem Nahen Osten und Amerika. Unsere Spezialisten verbinden tiefes Regulierungswissen mit Echtzeit‑Technologie, damit jede Sendung konform, nachvollziehbar und in Kosten sowie Laufzeit optimiert ist.',
+          'about.p3': 'Ob Sie Ihre erste Palette versenden oder tausende Container pro Jahr managen – Beyond bietet stets die gleiche Präzision, Transparenz und Sorgfalt. Deshalb vertrauen uns über 10.000 Kunden ihre Fracht an – und deshalb treiben wir Logistik kontinuierlich über Erwartungen hinaus.',
+          'about.stats.years.title': '1+ Jahre',
+          'about.stats.years.body': 'praktische Exzellenz im operativen Tagesgeschäft auf globalen Handelsrouten.',
+          'about.stats.customers.title': '10.000+',
+          'about.stats.customers.body': 'Kunden – von schnell wachsenden E‑Commerce‑Marken bis zu Konzernen.',
+          'about.stats.single.title': 'Ein Ansprechpartner',
+          'about.stats.single.body': 'für See-, Luft-, Straßentransporte, Lagerung und Dokumentation.',
+
+          'footer.brand': 'Beyond Logistics',
+          'footer.slogan': 'Leistung über Erwartungen hinaus.',
+          'footer.languages.label': 'Sprachen:',
+
+          'booking.title': 'Sendung buchen',
+          'booking.subtitle': 'Teilen Sie einige Details und unser Team meldet sich innerhalb eines Werktags bei Ihnen.',
+          'booking.submit': 'Anfrage senden',
+          'booking.success': 'Vielen Dank. Unser Team wird Sie in Kürze kontaktieren.',
+          'booking.form.service.label': 'Leistung',
+          'booking.form.service.placeholder': 'Leistung wählen',
+          'booking.form.date.label': 'Bevorzugtes Datum',
+          'booking.form.time.label': 'Bevorzugte Uhrzeit',
+          'booking.form.origin.label': 'Ursprung',
+          'booking.form.destination.label': 'Zielort',
+          'booking.form.origin.placeholder': 'Stadt, Land',
+          'booking.form.destination.placeholder': 'Stadt, Land',
+          'booking.form.notes.label': 'Frachtdetails & Hinweise',
+          'booking.form.notes.placeholder': 'Incoterms, Gewicht/Volumen, besondere Handhabung, Fristen...'
+        }
+      };
+
+      const languageOrder = ['en', 'nl', 'fr', 'de'];
+
+      const applyLanguage = (lang) => {
+        const dict = translations[lang] || translations.en;
+
+        document.querySelectorAll('[data-i18n-key]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-key');
+          if (!key) return;
+          const value = dict[key] || translations.en[key];
+          if (value) {
+            el.textContent = value;
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (!key) return;
+          const value = dict[key] || translations.en[key];
+          if (value) {
+            el.setAttribute('placeholder', value);
+          }
+        });
+
+        html.setAttribute('lang', lang === 'nl' ? 'nl' : lang === 'fr' ? 'fr' : lang === 'de' ? 'de' : 'en');
+        localStorage.setItem('beyond-lang', lang);
+
+        if (languageToggleLabel) {
+          languageToggleLabel.textContent = lang.toUpperCase();
+        }
+      };
+
+      const initLanguage = () => {
+        const stored = localStorage.getItem('beyond-lang');
+        const initial = stored && translations[stored] ? stored : 'en';
+        applyLanguage(initial);
+      };
+
+      initLanguage();
+
+      const closeLanguageMenu = () => {
+        if (languageMenu) {
+          languageMenu.classList.add('hidden');
+        }
+      };
+
+      const openLanguageMenu = () => {
+        if (languageMenu) {
+          languageMenu.classList.remove('hidden');
+        }
+      };
+
+      if (languageToggle && languageMenu && languageSwitcher) {
+        languageToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = !languageMenu.classList.contains('hidden');
+          if (isOpen) {
+            closeLanguageMenu();
+          } else {
+            openLanguageMenu();
+          }
+        });
+
+        languageMenu.querySelectorAll('[data-lang-option]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const lang = btn.getAttribute('data-lang-option');
+            if (lang) {
+              applyLanguage(lang);
+            }
+            closeLanguageMenu();
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!languageSwitcher.contains(e.target)) {
+            closeLanguageMenu();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeLanguageMenu();
+          }
+        });
+      }
+
+      /* -------------------- Mobile navigation -------------------- */
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          if (isOpen) {
+            mobileMenu.classList.add('hidden');
+            mobileIconOpen.classList.remove('hidden');
+            mobileIconClose.classList.add('hidden');
+          } else {
+            mobileMenu.classList.remove('hidden');
+            mobileIconOpen.classList.add('hidden');
+            mobileIconClose.classList.remove('hidden');
+          }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileIconOpen.classList.remove('hidden');
+            mobileIconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      /* -------------------- Booking modal -------------------- */
+      const openBooking = (serviceName) => {
+        if (!bookingModal) return;
+        bookingModal.classList.remove('hidden');
+        bookingModal.classList.add('flex');
+        if (serviceName && bookingServiceSelect) {
+          Array.from(bookingServiceSelect.options).forEach((opt) => {
+            if (opt.value === serviceName) {
+              bookingServiceSelect.value = serviceName;
+            }
+          });
+        }
+        if (bookingStatus) bookingStatus.style.opacity = '0';
+        const firstField = document.getElementById('booking-name');
+        if (firstField) {
+          setTimeout(() => firstField.focus(), 50);
+        }
+      };
+
+      const closeBooking = () => {
+        if (!bookingModal) return;
+        bookingModal.classList.add('hidden');
+        bookingModal.classList.remove('flex');
+      };
+
+      document.querySelectorAll('[data-open-booking]').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const serviceName = btn.getAttribute('data-service');
+          openBooking(serviceName);
+        });
+      });
+
+      document.querySelectorAll('[data-close-booking]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          closeBooking();
+        });
+      });
+
+      if (bookingModal) {
+        bookingModal.addEventListener('click', (e) => {
+          if (e.target === bookingModal) {
+            closeBooking();
+          }
+        });
+      }
+
+      // Let the browser handle booking form submit (mailto: sends an email)
+
+      /* -------------------- Tracking widget -------------------- */
+      const handleTrackingSearch = () => {
+        if (!trackingInput || !trackingFeedback) return;
+        const value = trackingInput.value.trim();
+        if (!value) {
+          trackingFeedback.textContent = 'Please enter a reference number to track.';
+          trackingFeedback.classList.remove('text-emerald-300');
+          trackingFeedback.classList.add('text-amber-300');
+          trackingFeedback.style.opacity = '1';
+          return;
+        }
+        trackingFeedback.textContent = `Tracking lookup for: ${value}`;
+        trackingFeedback.classList.remove('text-amber-300');
+        trackingFeedback.classList.add('text-emerald-300');
+        trackingFeedback.style.opacity = '1';
+        setTimeout(() => {
+          if (trackingFeedback) trackingFeedback.style.opacity = '0';
+        }, 2600);
+      };
+
+      if (trackingSearch && trackingInput) {
+        trackingSearch.addEventListener('click', handleTrackingSearch);
+        trackingInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleTrackingSearch();
+          }
+        });
+      }
+
+      /* -------------------- Volumetric weight calculator -------------------- */
+      const computeVolumetric = () => {
+        if (!volResult || !volLength || !volWidth || !volHeight || !volMode) return;
+        const L = parseFloat(volLength.value) || 0;
+        const W = parseFloat(volWidth.value) || 0;
+        const H = parseFloat(volHeight.value) || 0;
+        if (!L || !W || !H) {
+          volResult.textContent = '--';
+          return;
+        }
+        const mode = volMode.value || 'air';
+        const divisor = mode === 'sea' ? 1000 : 6000;
+        const vw = (L * W * H) / divisor;
+        volResult.textContent = `${vw.toFixed(2)} kg`;
+      };
+
+      if (volForm) {
+        ['input', 'change'].forEach((evt) => {
+          volForm.addEventListener(evt, computeVolumetric);
+        });
+      }
+      if (volCalcButton) {
+        volCalcButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          computeVolumetric();
+        });
+      }
+
+      /* -------------------- Stats count-up -------------------- */
+      const whySection = document.getElementById('why-beyond');
+      if (whySection) {
+        const counters = whySection.querySelectorAll('[data-countup-target]');
+        let hasRun = false;
+
+        const runCounters = () => {
+          counters.forEach((el) => {
+            const target = parseInt(el.getAttribute('data-countup-target'), 10) || 0;
+            const suffix = el.getAttribute('data-countup-suffix') || '';
+            const duration = 1600;
+            const start = performance.now();
+
+            const tick = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              const value = Math.floor(progress * target);
+              el.textContent = value.toLocaleString() + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+
+            requestAnimationFrame(tick);
+          });
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !hasRun) {
+                hasRun = true;
+                runCounters();
+                observer.disconnect();
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+
+        observer.observe(whySection);
+      }
+
+      /* -------------------- Parallax motion -------------------- */
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!prefersReducedMotion) {
+        const pointerLayers = document.querySelectorAll('[data-parallax]');
+        const updatePointerParallax = (event) => {
+          const w = window.innerWidth || 1;
+          const h = window.innerHeight || 1;
+          const xNorm = event.clientX / w - 0.5;
+          const yNorm = event.clientY / h - 0.5;
+          pointerLayers.forEach((layer) => {
+            const speed = parseFloat(layer.getAttribute('data-parallax-speed')) || 0.4;
+            const tx = -xNorm * 30 * speed;
+            const ty = -yNorm * 20 * speed;
+            layer.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+          });
+        };
+        window.addEventListener('pointermove', updatePointerParallax);
+
+        const scrollLayers = document.querySelectorAll('[data-parallax-scroll]');
+        const updateScrollParallax = () => {
+          const scrollY = window.scrollY || window.pageYOffset || 0;
+          scrollLayers.forEach((layer) => {
+            const speed = parseFloat(layer.getAttribute('data-parallax-scroll-speed')) || 0.3;
+            const translateY = -scrollY * speed;
+            layer.style.transform = `translate3d(0, ${translateY}px, 0)`;
+          });
+        };
+        updateScrollParallax();
+        window.addEventListener('scroll', updateScrollParallax, { passive: true });
+      }
+    })();
+  </script>
+
+
+</body>
+
+</html>
